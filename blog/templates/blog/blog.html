@@ -67,11 +67,11 @@
   <h1 class="pt-4 pb-5">Recent posts</h1>
 
   {% for post in posts.all %}
-  <h2>{{ post.title }}</h2>
+  <a href=""><h2>{{ post.title }}</h2></a>
   <br/>
   <img src="{{ post.image.url }}" height=300 width=300 class="img-fluid">
   <br/>
-  <p>{{ post.text }}</p>
+  <p>{{ post.get_summary }}</p>
   
   {{ post.date }}
   <br/>
