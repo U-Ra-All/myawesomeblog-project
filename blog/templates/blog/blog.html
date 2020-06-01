@@ -1,13 +1,14 @@
 
 <!doctype html>
 <html lang="en">
+{% load static %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>Album example · Bootstrap</title>
+    <title>My Awesome Blog</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
@@ -47,14 +48,14 @@
   <body>
     <header>
   <nav class="navbar navbar-expand-lg navbar-light font-italic " style="background-color: #efc07a;">
-  <a class="navbar-brand" href="#">My Awesome Blog</a>
+  <a class="navbar-brand" href="{% url 'home' %}">My Awesome Blog</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
-      <a class="nav-item nav-link" href="#">About Me</a>
-      <a class="nav-item nav-link" href="#">Facebook</a>
+      <a class="nav-item nav-link" href="{% static 'AboutMe.rtf' %}">About Me</a>
+      <a class="nav-item nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/YouRaAll/">Facebook</a>
       <a class="nav-item nav-link active" href="#">Blog</a>
     
     </div>
@@ -67,7 +68,7 @@
   <h1 class="pt-4 pb-5">Recent posts</h1>
 
   {% for post in posts.all %}
-  <a href=""><h2>{{ post.title }}</h2></a>
+  <a href="{% url 'specific_post' post.id %}"><h2>{{ post.title }}</h2></a>
   <br/>
   <img src="{{ post.image.url }}" height=300 width=300 class="img-fluid">
   <br/>
